@@ -1,0 +1,14 @@
+.projects-container {
+    .project-container {
+        width: 20%;
+        flex-grow: 1;
+
+        @media(max-width: $large) {
+            min-width: 45%;
+        }
+
+        @media(max-width:$medium) {
+            min-width: 100%;
+        }
+    }
+}

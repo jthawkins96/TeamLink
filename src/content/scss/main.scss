@@ -1,0 +1,58 @@
+@import './breakpoints.scss';
+@import './home.scss';
+@import './my-profile.scss';
+@import './project-dashboard.scss';
+@import './notifications.scss';
+@import './filter.scss';
+@import './modal.scss';
+
+$theme-colors: (
+    'primary':#52d681,
+    'secondary': #FF7C1E,
+    'light': #b5ff7d,
+    'dark': #2D2D2A,
+    'success': #00ad7c
+);
+
+#root-container {
+    height:100%;
+    min-height:100vh;
+
+    #main-nav {
+        width:5%;
+        min-height:100vh;
+        background-color:black;
+        position:fixed;
+        font-size:1.75rem;
+        
+        @media(max-width:$xLarge) {
+            font-size: 1.5rem;
+        }
+
+        .nav-item-container {
+            a:hover {
+                i {
+                    color: #52d681 !important;
+                }
+            }
+            
+        }
+    }
+
+    #navbar-container {
+        height:10%;
+    }
+
+    #content-container {
+        min-height:100vh;
+    }
+}
+
+select {
+    border:none;
+}
+*:focus {
+    outline:none;
+}
+
+@import './bootstrap-scss/bootstrap.scss';

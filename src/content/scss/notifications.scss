@@ -1,0 +1,7 @@
+.notification-container {
+    h4 {
+        @media(max-width: $small) {
+            font-size:1.4rem;
+        }
+    }
+}

@@ -1,0 +1,58 @@
+
+.home-bg {
+    background: linear-gradient(to top left, rgba(82, 214, 129, 0.8), rgba(0, 173, 124, 0.8) 0%,  50%, rgba(45,45,42, 0.8) 100%), 
+                        url('../images/home-bg.jpg') no-repeat;
+    background-size: cover;
+    background-position: bottom center;
+}
+
+#home-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color:white;
+
+    p, h3 {
+        text-shadow:0 0 0.1rem 0.5rem black;
+    }
+    
+    h3 {
+        @media(max-width:$medium) {
+            width:90%;
+        }
+    }
+
+    p {
+        @media(max-width:$medium) {
+            width: 80% !important
+        }
+    }
+
+    #home-buttons-container {
+        width: 30%;
+
+        @media(max-width:1655px) {
+            width:45%;
+        }
+
+        @media(max-width:$large) {
+            width:55%;
+        }
+
+        button {
+            flex-grow: 1;
+            flex-basis: 0;
+            color:white;
+
+            @media(max-width: 375px) {
+                font-size:0.9rem;
+            }
+
+            @media(max-width: 330px) {
+                font-size:0.8rem;
+            }
+        }
+    }
+}
