@@ -30,12 +30,17 @@
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
 
-    <script type="text/JavaScript">
+    <script>
       $(function () {
-        $('[data-toggle="tooltip"]').tooltip();
 
-        var width = $('.nav-item-container').width();
-        $('.nav-item-container').css({'height': width + 'px'});
+        function setNavContainerHeight() {
+          var width = $('.nav-item-container').width();
+          $('.nav-item-container').css({'height': width + 'px'});
+        }
+
+        setNavContainerHeight();
+        window.addEventListener('resize', setNavContainerHeight)
+        $('[data-toggle="tooltip"]').tooltip();
       })
     </script>
   </body>

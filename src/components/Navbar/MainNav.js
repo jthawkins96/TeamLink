@@ -1,48 +1,18 @@
 import React from 'react';
+import IconNavLink from './NavLinks/IconNavLink';
+
 
 const MainNav = () => {
     return (
         <div id="main-nav" className="d-none d-lg-flex flex-column align-items-center text-secondary bg-dark">
-            <div className="nav-item-container bg-secondary mb-1 w-100 d-flex justify-content-center align-items-center">
-                <a href="#">
-                    <i className="fas fa-home text-dark"></i>
-                </a>
-            </div>
-            <div className="nav-item-container bg-dark mb-1 w-100 d-flex justify-content-center align-items-center">
-                <a href="#" data-toggle="tooltip" data-placement="right" title="Search Projects">
-                    <i className="fas fa-hammer text-secondary"></i>
-                </a>
-            </div>
-            <div className="nav-item-container bg-dark mb-1 w-100 d-flex justify-content-center align-items-center">
-                <a href="#" data-toggle="tooltip" data-placement="right" title="My Projects">
-                    <i className="fas fa-tasks text-secondary"></i>
-                </a>
-            </div>
-            <div className="nav-item-container bg-dark mb-1 w-100 d-flex justify-content-center align-items-center">
-                <a href="#" data-toggle="tooltip" data-placement="right" title="Notifications">
-                    <i className="fas fa-bell text-secondary"></i>
-                </a>
-            </div>
-            <div className="nav-item-container bg-dark mb-1 w-100 d-flex justify-content-center align-items-center">
-                <a href="#" data-toggle="tooltip" data-placement="right" title="My Profile">
-                    <i className="fas fa-user-circle text-secondary"></i>
-                </a>
-            </div>
-            <div className="nav-item-container bg-dark mb-1 w-100 d-flex justify-content-center align-items-center">
-                <a href="#" data-toggle="tooltip" data-placement="right" title="Sign In">
-                    <i className="fas fa-sign-in-alt text-secondary"></i>
-                </a>
-            </div>
-            <div className="nav-item-container bg-dark mb-1 w-100 d-flex justify-content-center align-items-center">
-                <a href="#" data-toggle="tooltip" data-placement="right" title="Sign Out">
-                    <i className="fas fa-sign-out-alt text-secondary"></i>
-                </a>
-            </div>
-            <div className="nav-item-container bg-dark w-100 d-flex justify-content-center align-items-center">
-                <a href="#" data-toggle="tooltip" data-placement="right" title="Sign Up">
-                    <i className="fas fa-user-plus text-secondary"></i>
-                </a>
-            </div>
+                <IconNavLink path = "/" title = "Home" icon = "home" iconColor = "dark" containerBgColor="secondary" />
+                <IconNavLink path = "/find-projects" title = "Find Projects" icon = "hammer" iconColor = "secondary" containerBgColor="dark" />
+                <IconNavLink path = "/my-projects" title = "My Projects" icon = "tasks" iconColor = "secondary" containerBgColor="dark" />
+                <IconNavLink path = "/notifications" title = "Notifications" icon = "bell" iconColor = "secondary" containerBgColor="dark" />
+                <IconNavLink path = "/my-profile" title = "My Profile" icon = "user-circle" iconColor = "secondary" containerBgColor="dark" />
+                <IconNavLink path = "/" title = "Sign In" icon = "sign-in-alt" iconColor = "secondary" containerBgColor="dark" />
+                <IconNavLink path = "/" title = "Sign Out" icon = "sign-out-alt" iconColor = "secondary" containerBgColor="dark" />
+                <IconNavLink path = "/" title = "Sign Up" icon = "user-plus" iconColor = "secondary" containerBgColor="dark" />
         </div>
     );
 }

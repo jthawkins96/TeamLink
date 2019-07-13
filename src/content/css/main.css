@@ -89,6 +89,11 @@
 #root-container {
   height: 100%;
   min-height: 100vh; }
+  #root-container #mobile-nav-container a {
+    color: #FF7C1E; }
+    #root-container #mobile-nav-container a:hover {
+      color: #52d681;
+      text-decoration: none; }
   #root-container #main-nav {
     width: 5%;
     min-height: 100vh;

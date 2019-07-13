@@ -1,5 +1,5 @@
 import React from 'react';
-import ProjectDashboard from '../ProjectDashboard/ProjectDashboard';
+import ProjectDashboard from '../../components/ProjectDashboard/ProjectDashboard';
 
 const MyProjects = () => {
     return (

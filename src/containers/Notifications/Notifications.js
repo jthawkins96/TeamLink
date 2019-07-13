@@ -1,7 +1,6 @@
 import React from 'react';
-import Notification from './Notification/Notification';
-import Filter from '../ProjectDashboard/Filter/Filter';
-import SearchBar from '../ProjectDashboard/SearchBar/SearchBar';
+import Notification from '../../components/Notification/Notification';
+import SearchBar from '../../components/SearchBar/SearchBar';
 
 const Notifications = () => {
     const notifications = [0, 1, 2, 3, 4, 5].map(_ => <Notification />)

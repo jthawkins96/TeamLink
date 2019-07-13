@@ -6,26 +6,34 @@
 @import './filter.scss';
 @import './modal.scss';
 
-$theme-colors: (
-    'primary':#52d681,
-    'secondary': #FF7C1E,
-    'light': #b5ff7d,
-    'dark': #2D2D2A,
-    'success': #00ad7c
-);
+$theme-colors: ('primary':#52d681,
+'secondary': #FF7C1E,
+'light': #b5ff7d,
+'dark': #2D2D2A,
+'success': #00ad7c);
 
 #root-container {
-    height:100%;
-    min-height:100vh;
+    height: 100%;
+    min-height: 100vh;
+
+    #mobile-nav-container {
+        a {
+            color: #FF7C1E;
+            &:hover {
+                color:#52d681;
+                text-decoration: none;
+            }
+        }
+    }
 
     #main-nav {
-        width:5%;
-        min-height:100vh;
-        background-color:black;
-        position:fixed;
-        font-size:1.75rem;
-        
-        @media(max-width:$xLarge) {
+        width: 5%;
+        min-height: 100vh;
+        background-color: black;
+        position: fixed;
+        font-size: 1.75rem;
+
+        @media(max-width: $xLarge) {
             font-size: 1.5rem;
         }
 
@@ -35,24 +43,25 @@ $theme-colors: (
                     color: #52d681 !important;
                 }
             }
-            
+
         }
     }
 
     #navbar-container {
-        height:10%;
+        height: 10%;
     }
 
     #content-container {
-        min-height:100vh;
+        min-height: 100vh;
     }
 }
 
 select {
-    border:none;
+    border: none;
 }
+
 *:focus {
-    outline:none;
+    outline: none;
 }
 
 @import './bootstrap-scss/bootstrap.scss';
