@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import SearchBar from '../SearchBar/SearchBar';
 import Filter from '../Filter/Filter';
 import Project from './Project/Project';
-import Modal from '../Shared/Modal/Modal';
+import Modal from '../Modal/Modal';
 import useViewportWidth from '../../hooks/useViewportWidth';
 
 function getProjectsPerRow(width) {

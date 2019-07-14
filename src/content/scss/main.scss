@@ -27,7 +27,7 @@ $theme-colors: ('primary':#52d681,
     }
 
     #main-nav {
-        width: 5%;
+        width: 4%;
         min-height: 100vh;
         background-color: black;
         position: fixed;
@@ -35,6 +35,7 @@ $theme-colors: ('primary':#52d681,
 
         @media(max-width: $xLarge) {
             font-size: 1.5rem;
+            width:5%;
         }
 
         .nav-item-container {
@@ -45,10 +46,6 @@ $theme-colors: ('primary':#52d681,
             }
 
         }
-    }
-
-    #navbar-container {
-        height: 10%;
     }
 
     #content-container {

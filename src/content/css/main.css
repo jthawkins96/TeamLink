@@ -95,18 +95,17 @@
       color: #52d681;
       text-decoration: none; }
   #root-container #main-nav {
-    width: 5%;
+    width: 4%;
     min-height: 100vh;
     background-color: black;
     position: fixed;
     font-size: 1.75rem; }
     @media (max-width: 1200px) {
       #root-container #main-nav {
-        font-size: 1.5rem; } }
+        font-size: 1.5rem;
+        width: 5%; } }
     #root-container #main-nav .nav-item-container a:hover i {
       color: #52d681 !important; }
-  #root-container #navbar-container {
-    height: 10%; }
   #root-container #content-container {
     min-height: 100vh; }
 

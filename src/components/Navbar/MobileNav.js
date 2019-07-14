@@ -2,7 +2,24 @@ import React from 'react';
 import NavLink from './NavLinks/MobileNavLink';
 import NavBrand from './NavBrand/NavBrand';
 
-const MobileNav = () => {
+const MobileNav = props => {
+    let links;
+    if(props.isSignedIn) {
+        links = <div>
+                    <NavLink title="Find Projects" path="/find-projects" />
+                    <NavLink title="My Projects" path="/my-projects" />
+                    <NavLink title="Notifications" path="/notifications" />
+                    <NavLink title="My Profile" path="/my-profile" />
+                    <NavLink title="Sign Out" path="/" />
+                </div>
+    }
+    else {
+        links = <div>
+                    <NavLink title="Sign In" path="/" />
+                    <NavLink title="Sign Up" path="/" />
+                </div>
+    }
+
     return (
         <div id="mobile-nav-container" className="bg-dark text-secondary d-block d-lg-none">
             <nav id="mobile-nav" className="navbar navbar-dark navbar-expand-lg justify-content-between justify-content-lg-start">
@@ -16,13 +33,7 @@ const MobileNav = () => {
             <div className="collapse navbar-collapse px-3 w-100 bg-dark" id="dropDownNav">
                     <ul className="navbar-nav w-100 d-flex justify-content-center pb-3">
                         <NavLink title="Home" path="/" />
-                        <NavLink title="Find Projects" path="/find-projects" />
-                        <NavLink title="My Projects" path="/my-projects" />
-                        <NavLink title="Notifications" path="/notifications" />
-                        <NavLink title="My Profile" path="/my-profile" />
-                        <NavLink title="Sign In" path="/" />
-                        <NavLink title="Sign Out" path="/" />
-                        <NavLink title="Sign Up" path="/" />
+                        {links}
                     </ul>
                 </div>
 
