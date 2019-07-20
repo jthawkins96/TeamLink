@@ -42,6 +42,8 @@ const ProjectDashboard = props => {
 
     let languageFilter = ['JavaScript', 'HTML', 'CSS'];
     let difficultyFilter = ['Easy', 'Medium', 'Hard'];
+    let dateFilter = ['Most Recent', 'Oldest'];
+
     const { innerWidth: width } = window;
     const projectsPerRow = getProjectsPerRow(width);
     const projects = mapProjects([0, 1, 2, 3, 4, 5, 6, 7], projectsPerRow);
@@ -67,6 +69,9 @@ const ProjectDashboard = props => {
                 </div>
                 <div className="mr-3 d-inline-block my-3 my-md-0">
                     <Filter items={difficultyFilter} />
+                </div>
+                <div className="mr-3 d-inline-block my-3 my-md-0">
+                    <Filter items={dateFilter} />
                 </div>
             </div>
             <div className="projects-container d-flex justify-content-start flex-wrap">

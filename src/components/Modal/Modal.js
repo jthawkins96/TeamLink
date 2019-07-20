@@ -2,6 +2,7 @@ import React from 'react';
 
 const Modal = props => {
     return (
+        <div className="modalWrapper">
         <div className="modalBg">
                 <div className="modalContainer">
                     <button id="closeBtn" className="close" onClick={props.closeModal}>
@@ -15,6 +16,7 @@ const Modal = props => {
                         {props.children}
                     </div>
                 </div>
+            </div>
             </div>
     );
 }

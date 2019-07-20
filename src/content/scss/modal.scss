@@ -1,32 +1,35 @@
-.modalBg {
+.modalWrapper {
     position: absolute;
-    width:100vw;
-    height:100vh;
-    background:rgba(0,0,0,0.6);
-    top:0;
-    left:0;
-    display:flex;
-    justify-content:center;
-    align-items:center;
 
-    .modalContainer {
-        display:inline-block;
+    .modalBg {
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.6);
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
-        #closeBtn {
-            padding:0 5px;
-        }
+        .modalContainer {
+            display: inline-block;
 
-        .modalContent {
-            background:white;
-            padding:25px;
-            border-radius:5px;
+            #closeBtn {
+                padding: 0 5px;
+            }
 
-            .modalHeader {
-                display:flex;
-                justify-content:center;
-                align-items:flex-end;
+            .modalContent {
+                background: white;
+                padding: 25px;
+                border-radius: 5px;
+
+                .modalHeader {
+                    display: flex;
+                    justify-content: center;
+                    align-items: flex-end;
+                }
             }
         }
     }
 }
-

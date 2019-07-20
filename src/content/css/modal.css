@@ -1,0 +1,24 @@
+.modalWrapper {
+  position: absolute; }
+  .modalWrapper .modalBg {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .modalWrapper .modalBg .modalContainer {
+      display: inline-block; }
+      .modalWrapper .modalBg .modalContainer #closeBtn {
+        padding: 0 5px; }
+      .modalWrapper .modalBg .modalContainer .modalContent {
+        background: white;
+        padding: 25px;
+        border-radius: 5px; }
+        .modalWrapper .modalBg .modalContainer .modalContent .modalHeader {
+          display: flex;
+          justify-content: center;
+          align-items: flex-end; }

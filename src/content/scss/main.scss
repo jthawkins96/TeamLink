@@ -20,6 +20,7 @@ $theme-colors: ('primary':#52d681,
         a {
             color: #FF7C1E;
             &:hover {
+                cursor:pointer;
                 color:#52d681;
                 text-decoration: none;
             }
@@ -40,6 +41,7 @@ $theme-colors: ('primary':#52d681,
 
         .nav-item-container {
             a:hover {
+                cursor:pointer !important;
                 i {
                     color: #52d681 !important;
                 }

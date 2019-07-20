@@ -63,28 +63,30 @@
 .search-filter i {
   font-size: 0.8rem; }
 
-.modalBg {
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.6);
-  top: 0;
-  left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center; }
-  .modalBg .modalContainer {
-    display: inline-block; }
-    .modalBg .modalContainer #closeBtn {
-      padding: 0 5px; }
-    .modalBg .modalContainer .modalContent {
-      background: white;
-      padding: 25px;
-      border-radius: 5px; }
-      .modalBg .modalContainer .modalContent .modalHeader {
-        display: flex;
-        justify-content: center;
-        align-items: flex-end; }
+.modalWrapper {
+  position: absolute; }
+  .modalWrapper .modalBg {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .modalWrapper .modalBg .modalContainer {
+      display: inline-block; }
+      .modalWrapper .modalBg .modalContainer #closeBtn {
+        padding: 0 5px; }
+      .modalWrapper .modalBg .modalContainer .modalContent {
+        background: white;
+        padding: 25px;
+        border-radius: 5px; }
+        .modalWrapper .modalBg .modalContainer .modalContent .modalHeader {
+          display: flex;
+          justify-content: center;
+          align-items: flex-end; }
 
 #root-container {
   height: 100%;
@@ -92,6 +94,7 @@
   #root-container #mobile-nav-container a {
     color: #FF7C1E; }
     #root-container #mobile-nav-container a:hover {
+      cursor: pointer;
       color: #52d681;
       text-decoration: none; }
   #root-container #main-nav {
@@ -104,8 +107,10 @@
       #root-container #main-nav {
         font-size: 1.5rem;
         width: 5%; } }
-    #root-container #main-nav .nav-item-container a:hover i {
-      color: #52d681 !important; }
+    #root-container #main-nav .nav-item-container a:hover {
+      cursor: pointer !important; }
+      #root-container #main-nav .nav-item-container a:hover i {
+        color: #52d681 !important; }
   #root-container #content-container {
     min-height: 100vh; }
 

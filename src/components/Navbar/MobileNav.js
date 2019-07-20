@@ -1,22 +1,31 @@
-import React from 'react';
-import NavLink from './NavLinks/MobileNavLink';
+import React, { useState } from 'react';
+import MobileNavLink from './NavLinks/MobileNavLink';
 import NavBrand from './NavBrand/NavBrand';
+import SignInForm from '../Forms/SignInForm';
+import SignUpForm from '../Forms/SignUpForm';
+import Modal from '../Modal/Modal';
+import { showForm } from './utilityFunctions';
 
 const MobileNav = props => {
+    const [showModal, toggleModal] = useState(false);
+    const [modalTitle, setTitle] = useState(null);
+    const [modalContent, setContent] = useState(null);
+    const { innerHeight: windowHeight } = window;
+
     let links;
     if(props.isSignedIn) {
         links = <div>
-                    <NavLink title="Find Projects" path="/find-projects" />
-                    <NavLink title="My Projects" path="/my-projects" />
-                    <NavLink title="Notifications" path="/notifications" />
-                    <NavLink title="My Profile" path="/my-profile" />
-                    <NavLink title="Sign Out" path="/" />
+                    <MobileNavLink title="Find Projects" path="/find-projects" />
+                    <MobileNavLink title="My Projects" path="/my-projects" />
+                    <MobileNavLink title="Notifications" path="/notifications" />
+                    <MobileNavLink title="My Profile" path="/my-profile" />
+                    <MobileNavLink title="Sign Out" path="" click={ () => { return } } />
                 </div>
     }
     else {
         links = <div>
-                    <NavLink title="Sign In" path="/" />
-                    <NavLink title="Sign Up" path="/" />
+                    <MobileNavLink title="Sign In" path="" click={ () => showForm(<SignInForm />, toggleModal, setTitle, setContent, "Sign In") } />
+                    <MobileNavLink title="Sign Up" path="" click={ () => showForm(<SignUpForm />, toggleModal, setTitle, setContent, "Sign Up") } />
                 </div>
     }
 
@@ -32,11 +41,11 @@ const MobileNav = props => {
             </nav>
             <div className="collapse navbar-collapse px-3 w-100 bg-dark" id="dropDownNav">
                     <ul className="navbar-nav w-100 d-flex justify-content-center pb-3">
-                        <NavLink title="Home" path="/" />
+                        <MobileNavLink title="Home" path="/" />
                         {links}
                     </ul>
                 </div>
-
+            {showModal ? <Modal title={modalTitle} closeModal = {() => toggleModal(false)}>{modalContent}</Modal> : null}
         </div>
     );
 }
