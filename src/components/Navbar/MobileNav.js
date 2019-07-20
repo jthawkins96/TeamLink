@@ -19,13 +19,13 @@ const MobileNav = props => {
                     <MobileNavLink title="My Projects" path="/my-projects" />
                     <MobileNavLink title="Notifications" path="/notifications" />
                     <MobileNavLink title="My Profile" path="/my-profile" />
-                    <MobileNavLink title="Sign Out" path="" click={ () => { return } } />
+                    <MobileNavLink title="Sign Out" path="" click = {() => props.signOut()} />
                 </div>
     }
     else {
         links = <div>
-                    <MobileNavLink title="Sign In" path="" click={ () => showForm(<SignInForm />, toggleModal, setTitle, setContent, "Sign In") } />
-                    <MobileNavLink title="Sign Up" path="" click={ () => showForm(<SignUpForm />, toggleModal, setTitle, setContent, "Sign Up") } />
+                    <MobileNavLink title="Sign In" path="" click={ () => showForm(<SignInForm close={() => toggleModal(false)} />, toggleModal, setTitle, setContent, "Sign In") } />
+                    <MobileNavLink title="Sign Up" path="" click={ () => showForm(<SignUpForm close={() => toggleModal(false)} />, toggleModal, setTitle, setContent, "Sign Up") } />
                 </div>
     }
 

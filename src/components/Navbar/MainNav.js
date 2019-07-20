@@ -4,6 +4,8 @@ import SignInForm from '../Forms/SignInForm';
 import SignUpForm from '../Forms/SignUpForm';
 import Modal from '../Modal/Modal';
 import { showForm } from './utilityFunctions';
+import { signOut } from '../../store/actions/auth';
+import { connect } from 'react-redux';
 
 
 const MainNav = props => {
@@ -18,13 +20,13 @@ const MainNav = props => {
                     <IconNavLink path = "/my-projects" title = "My Projects" icon = "tasks" iconColor = "secondary" containerBgColor="dark" />
                     <IconNavLink path = "/notifications" title = "Notifications" icon = "bell" iconColor = "secondary" containerBgColor="dark" />
                     <IconNavLink path = "/my-profile" title = "My Profile" icon = "user-circle" iconColor = "secondary" containerBgColor="dark" />
-                    <IconNavLink path = "/sign-out" title = "Sign Out" icon = "sign-out-alt" iconColor = "secondary" containerBgColor="dark" />
+                    <IconNavLink click = {() => props.signOut()} path = "" title = "Sign Out" icon = "sign-out-alt" iconColor = "secondary" containerBgColor="dark" />
                 </div>
     }
     else {
         links = <div>
-                    <IconNavLink path="" title = "Sign In" icon = "sign-in-alt" iconColor = "secondary" containerBgColor="dark" click={ () => showForm(<SignInForm />, toggleModal, setTitle, setContent, "Sign In") } />
-                    <IconNavLink path="" title = "Sign Up" icon = "user-plus" iconColor = "secondary" containerBgColor="dark" click={ () => showForm(<SignUpForm />, toggleModal, setTitle, setContent, "Sign Up") }/>
+                    <IconNavLink path="" title = "Sign In" icon = "sign-in-alt" iconColor = "secondary" containerBgColor="dark" click={ () => showForm(<SignInForm close={() => toggleModal(false)} />, toggleModal, setTitle, setContent, "Sign In") } />
+                    <IconNavLink path="" title = "Sign Up" icon = "user-plus" iconColor = "secondary" containerBgColor="dark" click={ () => showForm(<SignUpForm close={() => toggleModal(false)} />, toggleModal, setTitle, setContent, "Sign Up") }/>
                 </div>
     }
 
@@ -37,4 +39,10 @@ const MainNav = props => {
     );
 }
 
-export default MainNav;
+const mapActionToProps = dispatch => {
+    return {
+        signOut: () => dispatch(signOut())
+    }
+}
+
+export default connect(null, mapActionToProps)(MainNav);

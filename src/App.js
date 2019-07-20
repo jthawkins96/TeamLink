@@ -1,6 +1,9 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
+import 'alertifyjs/build/css/alertify.css';
+import 'alertifyjs/build/css/themes/default.min.css';
+
 import MobileNav from './components/Navbar/MobileNav';
 import MainNav from './components/Navbar/MainNav';
 import Home from './containers/Home/Home';

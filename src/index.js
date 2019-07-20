@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import * as firebase from 'firebase/app';
 import 'firebase/firestore';
-import firebaseConfig from './firebaseConfig';
+import { firebaseConfig } from './firebase-config';
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import reducers from './store/reducers/reducers';
@@ -14,12 +14,9 @@ import './content/css/main.css';
 
 firebase.initializeApp(firebaseConfig);
 
-const db = firebase.firestore();
-
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const rootReducer = combineReducers({
-    db: reducers.initDb(db),
     auth: reducers.authReducer
 });
 

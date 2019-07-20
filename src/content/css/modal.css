@@ -22,3 +22,6 @@
           display: flex;
           justify-content: center;
           align-items: flex-end; }
+        .modalWrapper .modalBg .modalContainer .modalContent label {
+          color: #2D2D2A;
+          font-size: 1rem; }
