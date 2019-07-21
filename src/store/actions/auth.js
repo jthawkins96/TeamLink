@@ -11,10 +11,11 @@ export const signIn = (email, password, callback) => {
                     callback();
                     return true;
                 })
-                .catch(() => {
+                .catch((error) => {
                     alertify.notify('Invalid username or password.', 'error', 3)
                     return false;
                 });
+            console.log(success)
         }
         catch {
             alertify.notify('error', 'Unable to connect to the database.', 3)

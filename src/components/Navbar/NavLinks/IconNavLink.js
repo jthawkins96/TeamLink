@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { signOut } from '../../../store/actions/auth';
 import { Link } from 'react-router-dom';
 
 const IconNavLink = props => {
@@ -18,10 +20,16 @@ const IconNavLink = props => {
                </a>
     }
     return (
-        <div className={`nav-item-container bg-${props.containerBgColor} mb-1 w-100 d-flex justify-content-center align-items-center`}>
+        <div className={`nav-item-container ${props.classes} mb-1 w-100 justify-content-center align-items-center`}>
             {link}
         </div>
     );
 }
 
-export default IconNavLink;
+const mapActionToProps = dispatch => {
+    return {
+        signOut: () => dispatch(signOut())
+    }
+}
+
+export default connect(mapActionToProps)(IconNavLink);

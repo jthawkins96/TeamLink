@@ -110,10 +110,12 @@
       #root-container #main-nav {
         font-size: 1.5rem;
         width: 5%; } }
-    #root-container #main-nav .nav-item-container a:hover {
-      cursor: pointer !important; }
-      #root-container #main-nav .nav-item-container a:hover i {
-        color: #52d681 !important; }
+    #root-container #main-nav .nav-item-container {
+      height: auto; }
+      #root-container #main-nav .nav-item-container a:hover {
+        cursor: pointer !important; }
+        #root-container #main-nav .nav-item-container a:hover i {
+          color: #52d681 !important; }
   #root-container #content-container {
     min-height: 100vh; }
 

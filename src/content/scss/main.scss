@@ -40,6 +40,8 @@ $theme-colors: ('primary':#52d681,
         }
 
         .nav-item-container {
+            height: auto;
+            
             a:hover {
                 cursor:pointer !important;
                 i {
