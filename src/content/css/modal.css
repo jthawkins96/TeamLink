@@ -17,11 +17,15 @@
       .modalWrapper .modalBg .modalContainer .modalContent {
         background: white;
         padding: 25px;
-        border-radius: 5px; }
+        border-radius: 5px;
+        text-align: left;
+        font-size: 1rem; }
         .modalWrapper .modalBg .modalContainer .modalContent .modalHeader {
+          color: #FF7C1E;
           display: flex;
           justify-content: center;
-          align-items: flex-end; }
+          align-items: flex-end;
+          text-align: center; }
         .modalWrapper .modalBg .modalContainer .modalContent label {
           color: #2D2D2A;
           font-size: 1rem; }

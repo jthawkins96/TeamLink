@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
 import MobileNavLink from './NavLinks/MobileNavLink';
 import NavBrand from './NavBrand/NavBrand';
 import SignInForm from '../Forms/SignInForm';
 import SignUpForm from '../Forms/SignUpForm';
 import Modal from '../Modal/Modal';
 import { showForm } from './utilityFunctions';
+import { signOut } from '../../store/actions/auth';
+import { withRouter } from 'react-router-dom';
 
 const MobileNav = props => {
     const [showModal, toggleModal] = useState(false);
@@ -19,7 +22,7 @@ const MobileNav = props => {
                     <MobileNavLink title="My Projects" path="/my-projects" />
                     <MobileNavLink title="Notifications" path="/notifications" />
                     <MobileNavLink title="My Profile" path="/my-profile" />
-                    <MobileNavLink title="Sign Out" path="" click = {() => props.signOut()} />
+                    <MobileNavLink title="Sign Out" path="" click = { () => { props.signOut(); props.history.push('/'); } } />
                 </div>
     }
     else {
@@ -50,4 +53,10 @@ const MobileNav = props => {
     );
 }
 
-export default MobileNav;
+const mapActionToProps = dispatch => {
+    return {
+        signOut: () => dispatch(signOut())
+    }
+}
+
+export default connect(null, mapActionToProps)(withRouter(MobileNav));

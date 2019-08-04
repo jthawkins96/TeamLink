@@ -1,10 +1,10 @@
 import authReducer from './authReducer';
-
-const initialState = {};
+import bgClassReducer from './bgClassReducer';
 
 
 const reducers = {
-    authReducer: authReducer
+    authReducer: authReducer,
+    bgClassReducer: bgClassReducer
 }
 
 export default reducers;
