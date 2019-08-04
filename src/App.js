@@ -13,18 +13,22 @@ import Notifications from './containers/Notifications/Notifications';
 import MyProfile from './containers/MyProfile/MyProfile';
 
 
- function App(props) {
+function App(props) {
+  if(props.userSignedInFromCookie) {
+    props.setUser(props.username)
+  }
+
   return (
     <BrowserRouter>
       <div id="root-container" className={props.bgClass}>
         <div id="navbar-container">
-          <MainNav isSignedIn = {props.isSignedIn} />
-          <MobileNav isSignedIn = {props.isSignedIn} />
+          <MainNav isSignedIn={props.isSignedIn} />
+          <MobileNav isSignedIn={props.isSignedIn} />
         </div>
         <div id="content-container" className="container pt-3 d-flex flex-column">
           <Switch>
             <Route path="/" exact component={Home} />
-            { props.isSignedIn ? null : <Redirect to="/" /> }
+            {props.isSignedIn ? null : <Redirect to="/" />}
             <Route path="/find-projects" exact component={FindProjects} />
             <Route path="/my-projects" exact component={MyProjects} />
             <Route path="/notifications" exact component={Notifications} />
@@ -43,4 +47,10 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(App);
+const mapActionToProps = dispatch => {
+  return {
+    setUser: (username) => dispatch({ type: 'SET_USERNAME', value: username }),
+  }
+}
+
+export default connect(mapStateToProps, mapActionToProps)(App);

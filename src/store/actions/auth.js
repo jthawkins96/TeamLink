@@ -19,8 +19,11 @@ export const signIn = (email, password, callback) => {
         catch {
             alertify.notify('error', 'Unable to connect to the database.', 3)
         }
-        if (success)
+        if (success) {
+            localStorage.setItem('lastLoggedIn', new Date().toUTCString())
+            localStorage.setItem('username', email.split('@')[0])
             return dispatch({ type: 'USER_SIGNED_IN' });
+        }
         else
             return;
     }
