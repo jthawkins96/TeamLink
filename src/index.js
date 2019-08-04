@@ -11,6 +11,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import './content/css/main.css';
+import { BrowserRouter } from 'react-router-dom';
 
 firebase.initializeApp(firebaseConfig);
 
@@ -36,7 +37,7 @@ if(lastLoggedIn && new Date(lastLoggedIn) >= currentDate) {
     userSignedInFromCookie = true;
 }
 
-ReactDOM.render(<Provider store={store}><App userSignedInFromCookie = {userSignedInFromCookie} username = {username} /></Provider>, document.getElementById('root'));
+ReactDOM.render(<Provider store={store}><BrowserRouter><App userSignedInFromCookie = {userSignedInFromCookie} username = {username} /></BrowserRouter></Provider>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

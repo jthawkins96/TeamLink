@@ -3,7 +3,7 @@ import IconNavLink from './NavLinks/IconNavLink';
 import SignInForm from '../Forms/SignInForm';
 import SignUpForm from '../Forms/SignUpForm';
 import Modal from '../Modal/Modal';
-import { showForm } from './utilityFunctions';
+import showForm from '../../utility/showForm';
 import { signOut } from '../../store/actions/auth';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';

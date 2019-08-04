@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const IconNavLink = props => {
     let link;
     if (props.path !== "") {
-        link = <Link to={props.path} onClick={() => changeBackground(props.title, props.changeBackground)} >
+        link = <Link to={props.path} >
                 <div data-toggle="tooltip" data-placement="right" title={props.title}>
                     <i className={`fas fa-${props.icon} text-${props.iconColor}`}></i>
                 </div>
@@ -26,20 +26,9 @@ const IconNavLink = props => {
     );
 }
 
-function changeBackground(title, changeBackgroundAction) {
-    switch(title) {
-        case "Home":
-            changeBackgroundAction("home-bg")
-            break;
-        default:
-            changeBackgroundAction("")
-    }
-}
-
 const mapActionToProps = dispatch => {
     return {
         signOut: () => dispatch(signOut()),
-        changeBackground: (className) => dispatch({ type:'CHANGE_BACKGROUND', value: className })
     }
 }
 

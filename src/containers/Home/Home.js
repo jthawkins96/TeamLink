@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import Modal from '../../components/Modal/Modal';
 import SignInForm from '../../components/Forms/SignInForm';
+import navigateToPage from '../../utility/navigateToPage';
 
 const Home = props => {
     const [showModal, toggleModal] = useState(false);
@@ -20,12 +21,6 @@ const Home = props => {
     );
 }
 
-function navigateToPage(isSignedIn, history, path, toggleModal) {
-    if(isSignedIn) 
-        history.push(path)
-    else
-        toggleModal(true)
-}
 
 const mapStateToProps = state => {
     return {
