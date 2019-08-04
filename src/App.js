@@ -1,5 +1,5 @@
-import React from 'react';
-import { BrowserRouter, Route, Switch, Redirect, withRouter } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Route, Switch, Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import 'alertifyjs/build/css/alertify.css';
 import 'alertifyjs/build/css/themes/default.min.css';
@@ -13,38 +13,50 @@ import Notifications from './containers/Notifications/Notifications';
 import MyProfile from './containers/MyProfile/MyProfile';
 
 
-class App extends React.Component {
+const App = props => {
 
-  componentDidUpdate(prevProps) {
-    if (this.props.location.pathname !== prevProps.location.pathname) {
-        const pathName = this.props.location.pathname === '/' ? 'home' : this.props.location.pathname.replace('/', '')
-        this.props.setBgClass(`${pathName}-bg`)
-    }
-}
-  render() {
-    if (this.props.userSignedInFromCookie) {
-      this.props.setUser(this.props.username);
+  useEffect(() => {
+    const lastLoggedIn = localStorage.getItem('lastLoggedIn')
+    let currentDate = new Date();
+    currentDate.setDate(currentDate.getDate() - 7);
+
+    let username = "";
+    let userSignedInFromCookie = false;
+
+    if (lastLoggedIn && new Date(lastLoggedIn) >= currentDate) {
+      localStorage.setItem('lastLoggedIn', new Date().toUTCString())
+      username = localStorage.getItem('username');
+      userSignedInFromCookie = true;
     }
 
-    return (
-        <div id="root-container" className={this.props.bgClass}>
-          <div id="navbar-container">
-            <MainNav isSignedIn={this.props.isSignedIn} />
-            <MobileNav isSignedIn={this.props.isSignedIn} />
-          </div>
-          <div id="content-container" className="container pt-3 d-flex flex-column">
-            <Switch>
-              <Route path="/" exact component={Home} />
-              {this.props.isSignedIn ? null : <Redirect to="/" />}
-              <Route path="/find-projects" exact component={FindProjects} />
-              <Route path="/my-projects" exact component={MyProjects} />
-              <Route path="/notifications" exact component={Notifications} />
-              <Route path="/my-profile" exact component={MyProfile} />
-            </Switch>
-          </div>
-        </div>
-    );
-  }
+    if (userSignedInFromCookie) {
+      props.setUser(username);
+    }
+  }, [])
+
+  useEffect(() => {
+    const pathName = props.location.pathname === '/' ? 'home' : props.location.pathname.replace('/', '')
+    props.setBgClass(`${pathName}-bg`)
+  }, [props.location.pathname])
+
+  return (
+    <div id="root-container" className={props.bgClass}>
+      <div id="navbar-container">
+        <MainNav isSignedIn={props.isSignedIn} />
+        <MobileNav isSignedIn={props.isSignedIn} />
+      </div>
+      <div id="content-container" className="container pt-3 d-flex flex-column">
+        <Switch>
+          <Route path="/" exact component={Home} />
+          {props.isSignedIn ? null : <Redirect to="/" />}
+          <Route path="/find-projects" exact component={FindProjects} />
+          <Route path="/my-projects" exact component={MyProjects} />
+          <Route path="/notifications" exact component={Notifications} />
+          <Route path="/my-profile" exact component={MyProfile} />
+        </Switch>
+      </div>
+    </div>
+  );
 }
 
 const mapStateToProps = state => {

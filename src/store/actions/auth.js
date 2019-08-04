@@ -49,6 +49,8 @@ export const signOut = () => {
             .catch(error => {
                 alertify.notify('Error logging out of firebase.', 'error', 3)
             });
+        localStorage.removeItem('lastLoggedIn')
+        localStorage.removeItem('username')
         return dispatch({ type: 'USER_SIGNED_OUT' })
     }
 }
