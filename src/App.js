@@ -15,7 +15,7 @@ import MyProfile from './containers/MyProfile/MyProfile';
 
 function App(props) {
   if(props.userSignedInFromCookie) {
-    props.setUser(props.username)
+    props.setUser(props.username);
   }
 
   return (
