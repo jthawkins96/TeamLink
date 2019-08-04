@@ -3,13 +3,14 @@ import { signUp } from '../../store/actions/auth';
 
 const SignUpForm = props => {
     const email = useRef();
+    const name = useRef();
     const password = useRef();
 
     return (
-        <form onSubmit={(e) => { e.preventDefault(); signUp(email.current.value, password.current.value, props.close) } }>
+        <form onSubmit={(e) => { e.preventDefault(); signUp(email.current.value, name.current.value, password.current.value, props.close) } }>
             <div className="form-group">
                 <label htmlFor = "name">Name</label>
-                <input className="form-control" type="text" id="name" />
+                <input ref={name} className="form-control" type="text" id="name" />
             </div>
             <div className="form-group">
                 <label htmlFor = "email">Email</label>

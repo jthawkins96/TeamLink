@@ -29,15 +29,29 @@ export const signIn = (email, password, callback) => {
     }
 }
 
-export const signUp = (email, password, callback) => {
+export const signUp = (email, name, password, closeModal) => {
     firebase.auth().createUserWithEmailAndPassword(email, password)
         .then(() => {
-            alertify.notify('Account successfully created!', 'success', 3)
-            callback()
+            firebase.firestore().collection('users').add({
+                username: email,
+                name: name,
+                languages: [],
+                yearsOfExperience:0,
+                dateCreated: firebase.firestore.Timestamp.fromDate(new Date())
+            }).then(() => {
+                alertify.notify('Account successfully created!', 'success', 3)
+                closeModal() 
+            })
+            .catch(error => {
+                alertify.notify('Error saving account information.', 'error', 3)
+            })
         })
         .catch(error => {
             if(error.code === 'auth/email-already-in-use')
                 alertify.notify('Account with that email already exists.', 'error', 3)
+            else if(error.code === 'auth/weak-password') {
+                alertify.notify('Password should be at least 6 characters in length.', 'error', 3)
+            }
             else
                 alertify.notify('Unable to create account.', 'error', 3)
         });
