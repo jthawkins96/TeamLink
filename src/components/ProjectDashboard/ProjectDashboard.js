@@ -4,6 +4,7 @@ import Filter from '../Filter/Filter';
 import Project from './Project/Project';
 import Modal from '../Modal/Modal';
 import useViewportWidth from '../../hooks/useViewportWidth';
+import AddProjectForm from '../Forms/AddProjectForm';
 
 function getProjectsPerRow(width) {
     if (width >= 768 && width < 992)
@@ -18,7 +19,7 @@ const ProjectDashboard = props => {
 
     function setModal(title, description) {
         setModalTitle(title);
-        setModalContent(<p>{description}</p>);
+        setModalContent(description);
         toggleModal(true);
     }
 
@@ -34,7 +35,7 @@ const ProjectDashboard = props => {
             return (
                 <Project title="Test"
                     languages="JavaScript, HTML, CSS"
-                    click={() => setModal("Test", "asdfasdfasdf asdfasdf asdfasdf asdfasdf")}
+                    click={() => setModal("Test", <p>asdfasdfasdf asdfasdf asdfasdf asdfasdf</p>)}
                     marginClass={classes} />
             );
         });
@@ -73,6 +74,7 @@ const ProjectDashboard = props => {
                 <div className="mr-3 d-inline-block my-3 my-md-0">
                     <Filter items={dateFilter} />
                 </div>
+                { props.isMyProjectsPage ? <button onClick={() => setModal("Add Project", <AddProjectForm closeModal = {() => toggleModal(false)}/>)} className="btn btn-primary">Add Project</button> : null }
             </div>
             <div className="projects-container d-flex justify-content-start flex-wrap">
                 {projects}
