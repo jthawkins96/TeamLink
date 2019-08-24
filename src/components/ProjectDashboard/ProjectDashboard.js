@@ -13,16 +13,17 @@ const ProjectDashboard = (props) => {
     const [modalTitle, setModalTitle] = useState(null);
     const [viewportWidth, setWidth] = useState(null);
     const [projectList, setProjectList] = useState(null);
+    const [filterList, setFilterList] = useState({searchTerm: "", language: ""});
+    const { innerWidth: width } = window;
     
     const modalFns = { setModalTitle: setModalTitle, setModalContent: setModalContent, toggleModal: toggleModal };
     useViewportWidth(setWidth);
 
-    let languageFilter = ['JavaScript', 'HTML', 'CSS'];
-    let difficultyFilter = ['Easy', 'Medium', 'Hard'];
+    let languageFilter = ['-- Language --','JavaScript', 'HTML', 'CSS'];
+    let difficultyFilter = ['-- Difficulty --','Easy', 'Intermediate', 'Hard'];
     let dateFilter = ['Most Recent', 'Oldest'];
 
     useEffect(() => {
-        const { innerWidth: width } = window;
         const projectsPerRow = utilityFns.getProjectsPerRow(width);
         utilityFns.mapProjects(props.getProjects == "all" ? utilityFns.getAllProjects : utilityFns.getUserProjects, projectsPerRow, modalFns).then(projects => setProjectList(projects));
     }, [])
@@ -33,16 +34,10 @@ const ProjectDashboard = (props) => {
         <div>
             <div id="filters-container" className="d-block d-md-flex justify-content-md-start mb-4">
                 <div className="mr-3">
-                    <SearchBar />
+                    <SearchBar modalFns={modalFns} filters={filterList} updateFilters={setFilterList} windowWidth={width} updateList={setProjectList} filterResults={utilityFns.filterSearchResults} />
                 </div>
                 <div className="mr-3 d-inline-block my-3 my-md-0">
-                    <Filter items={languageFilter} />
-                </div>
-                <div className="mr-3 d-inline-block my-3 my-md-0">
-                    <Filter items={difficultyFilter} />
-                </div>
-                <div className="mr-3 d-inline-block my-3 my-md-0">
-                    <Filter items={dateFilter} />
+                    <Filter modalFns={modalFns} windowWidth={width} filters={filterList} updateFilters={setFilterList} updateList={setProjectList} filterResults={utilityFns.filterLanguageResults} items={languageFilter} />
                 </div>
                 { props.isMyProjectsPage ? <button onClick={() => utilityFns.setModal("Add Project", <AddProjectForm closeModal = {() => toggleModal(false)}/>, modalFns)} className="btn btn-primary">Add Project</button> : null }
             </div>
