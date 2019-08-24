@@ -1,10 +1,11 @@
 import authReducer from './authReducer';
 import bgClassReducer from './bgClassReducer';
-
+import profileReducer from './profileReducer';
 
 const reducers = {
     authReducer: authReducer,
-    bgClassReducer: bgClassReducer
+    bgClassReducer: bgClassReducer,
+    profileReducer: profileReducer
 }
 
 export default reducers;

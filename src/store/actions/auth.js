@@ -33,7 +33,7 @@ export const signUp = (email, name, password, closeModal) => {
     firebase.auth().createUserWithEmailAndPassword(email, password)
         .then(() => {
             firebase.firestore().collection('users').add({
-                username: email,
+                username: email.toLowerCase().split("@")[0],
                 name: name,
                 languages: [],
                 yearsOfExperience:0,

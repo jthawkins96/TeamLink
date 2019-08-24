@@ -7,7 +7,7 @@ import AddProjectForm from '../Forms/AddProjectForm';
 import utilityFns from './ProjectDashboardUtility';
 
 
-const ProjectDashboard = (props) => {
+const ProjectDashboard = (props) => { 
     const [showModal, toggleModal] = useState(false);
     const [modalContent, setModalContent] = useState(null);
     const [modalTitle, setModalTitle] = useState(null);

@@ -19,7 +19,8 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const rootReducer = combineReducers({
     auth: reducers.authReducer,
-    bgClass: reducers.bgClassReducer
+    bgClass: reducers.bgClassReducer,
+    profile: reducers.profileReducer
 });
 
 const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)));
