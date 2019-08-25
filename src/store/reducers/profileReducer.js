@@ -10,6 +10,11 @@ const profileReducer = (state = initialState, action) => {
             }
         }
     }
+    else if(action.type === 'SET_PROFILE') {
+        return {
+            userProfile: action.value
+        }
+    }
 
     return state;
 }
